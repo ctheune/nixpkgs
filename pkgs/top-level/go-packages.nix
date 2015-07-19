@@ -1765,6 +1765,45 @@ let
     };
   };
 
+  palourde.logger = buildGoPackage rec {
+    name = "palourde-logger-${rev}";
+    goPackagePath = "github.com/palourde/logger";
+    rev = "0.0.1";
+
+    src = fetchFromGitHub {
+      inherit rev;
+      owner = "palourde";
+      repo = "logger";
+      sha256 = "1wkmjmai51w08f3k7s82spwgnmdvmxir3znmxcamhl1d5qqc32fg";
+    };
+  };
+
+  bencaron.gosensu = buildGoPackage rec {
+    name = "bencaron-gosensu-${stdenv.lib.strings.substring 0 7 rev}";
+    goPackagePath = "github.com/bencaron/gosensu";
+    rev = "11934645244245e1a0a687a1ce46be2cf6d38d7c";
+
+    src = fetchFromGitHub {
+      inherit rev;
+      owner = "bencaron";
+      repo = "gosensu";
+      sha256 = "04q7qcx2qri06df2sr9nzlgs28i4p7f5xjpjkzcvixsidzgxil0g";
+    };
+  };
+
+  dgrijalva.jwt-go = buildGoPackage rec {
+    name = "dgrijalva-jwt-go-${rev}";
+    goPackagePath = "github.com/dgrijalva/jwt-go";
+    rev = "v2.2.0-15-g61124b6";
+
+    src = fetchFromGitHub {
+      inherit rev;
+      owner = "dgrijalva";
+      repo = "jwt-go";
+      sha256 = "1pjianfr96rxa5b9sc9659gnay3kqwhcmjw26z77gznfjxajigqd";
+    };
+  };
+
   odeke-em.log = buildGoPackage rec {
     rev = "cad53c4565a0b0304577bd13f3862350bdc5f907";
     name = "log-${stdenv.lib.strings.substring 0 7 rev}";
