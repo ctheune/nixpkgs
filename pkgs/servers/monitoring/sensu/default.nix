@@ -1,18 +1,19 @@
-  { lib, bundlerEnv, ruby }:
+{ lib, bundlerEnv, ruby }:
 
   bundlerEnv {
-    name = "sensu-0.20.0";
+  name = "sensu-0.20.0";
 
-    inherit ruby;
-    gemfile = ./Gemfile;
-    lockfile = ./Gemfile.lock;
-    gemset = ./gemset.nix;
+  inherit ruby;
+  gemfile = ./Gemfile;
+  lockfile = ./Gemfile.lock;
+  gemset = ./gemset.nix;
 
-    meta = with lib; {
-      description = "A monitoring framework that aims to be simple, malleable, and scalable";
-      homepage    = http://sensuapp.org/;
-      license     = licenses.mit;
-      maintainers = with maintainers; [ theuni ];
-      platforms   = platforms.unix;
-    };
-  }
+  meta = with lib; {
+    description = "A monitoring framework that aims to be simple, malleable, and scalable";
+    homepage    = http://sensuapp.org/;
+    license     = licenses.mit;
+    maintainers = with maintainers; [ theuni ];
+    platforms   = platforms.unix;
+  };
+
+}

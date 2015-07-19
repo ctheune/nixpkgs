@@ -239,6 +239,9 @@
   ./services/monitoring/riemann-dash.nix
   ./services/monitoring/riemann-tools.nix
   ./services/monitoring/scollector.nix
+  ./services/monitoring/sensu-api.nix
+  ./services/monitoring/sensu-client.nix
+  ./services/monitoring/sensu-server.nix
   ./services/monitoring/smartd.nix
   ./services/monitoring/statsd.nix
   ./services/monitoring/systemhealth.nix
