@@ -1,7 +1,7 @@
   { lib, bundlerEnv, ruby }:
 
   bundlerEnv {
-    name = "sensu-0.17.1";
+    name = "sensu-0.20.0";
 
     inherit ruby;
     gemfile = ./Gemfile;
