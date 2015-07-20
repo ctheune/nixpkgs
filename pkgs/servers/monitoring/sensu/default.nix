@@ -1,4 +1,4 @@
-{ lib, bundlerEnv, ruby }:
+{ lib, bundlerEnv, ruby, pkgs }:
 
   bundlerEnv {
   name = "sensu-0.20.0";

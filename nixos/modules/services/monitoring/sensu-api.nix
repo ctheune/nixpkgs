@@ -54,6 +54,8 @@ in {
       serviceConfig = {
         User = "sensuapi";
         ExecStart = "${pkgs.sensu}/bin/sensu-api";
+        Restart = "always";
+        RestartSec = "5s";
       };
     };
 
