@@ -66,7 +66,7 @@ in {
       path = [ pkgs.uchiwa ];
       serviceConfig = {
         User = "uchiwa";
-        ExecStart = "${pkgs.uchiwa}/bin/uchiwa -c ${uchiwa_json} -p ${pkgs.uchiwa}/share/go/src/github.com/sensu/uchiwa/public";
+        ExecStart = "${pkgs.uchiwa}/bin/uchiwa -c ${uchiwa_json} -p ${pkgs.uchiwa}/public";
       };
     };
 

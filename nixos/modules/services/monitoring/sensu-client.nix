@@ -12,7 +12,7 @@ let
       "client": {
         "name": "${config.networking.hostName}",
         "address": "localhost",
-        "subscriptions": [ ]
+        "subscriptions": ["default"]
       }
     }
   '';
@@ -58,10 +58,12 @@ in {
 
     systemd.services.sensu-client = {
       wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.sensu ];
+      path = [ pkgs.sensu pkgs.nagiosPluginsOfficial pkgs.bash ];
       serviceConfig = {
         User = "sensuclient";
-        ExecStart = "${pkgs.sensu}/bin/sensu-client -c ${client_json}";
+        ExecStart = "${pkgs.sensu}/bin/sensu-client -c ${client_json} -v -L debug";
+        Restart = "always";
+        RestartSec = "5s";
       };
     };
 

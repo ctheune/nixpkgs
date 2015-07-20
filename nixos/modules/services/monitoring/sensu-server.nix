@@ -7,6 +7,37 @@ let
 
   cfg = config.services.sensu-server;
 
+  urls = [
+"www.google.com"
+"www.gocept.com"
+"flyingcircus.io"
+"portal.staralliance.com"
+"karl.soros.org"
+];
+
+  http_checks = lib.concatStringsSep ",\n" (map (x: ''
+    "check_${x}": {
+      "notification": "${x} HTTP failed",
+      "command": "check_http ${x}",
+      "subscribers": ["default"],
+      "interval": 60,
+      "handlers": []
+    }
+'') urls);
+
+  sensu_server_json = pkgs.writeText "sensu-server.json"
+    ''
+    {
+      "checks": {
+        ${http_checks}
+      }
+
+    ${config.services.sensu-server.config}
+
+    }
+
+    '';
+
 in {
 
   options = {
@@ -24,6 +55,7 @@ in {
         description = ''
           Contents of the sensu configuration file.
         '';
+        default = "";
       };
       extraOpts = mkOption {
         type = with types; listOf str;
@@ -50,12 +82,14 @@ in {
 
     systemd.services.sensu-server = {
       wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.sensu ];
+      path = [ pkgs.sensu pkgs.bash ];
       serviceConfig = {
         User = "sensuserver";
-        ExecStart = "${pkgs.sensu}/bin/sensu-server";
+        ExecStart = "${pkgs.sensu}/bin/sensu-server -v -L debug -c ${sensu_server_json}";
+        Restart = "always";
+        RestartSec = "5s";
       };
-    };
+      };
 
   };
 
