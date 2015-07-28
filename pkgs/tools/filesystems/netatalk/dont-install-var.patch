@@ -1,0 +1,26 @@
+--- netatalk/config/Makefile.am	2014-08-29 12:32:18.000000000 +0200
++++ netatalk/config/Makefile.am.new	2015-07-28 17:18:21.000000000 +0200
+@@ -36,10 +36,6 @@
+ #
+
+ install-data-local: install-config-files
+-	mkdir -pm 0755 $(DESTDIR)$(localstatedir)/netatalk/
+-	mkdir -pm 0755 $(DESTDIR)$(localstatedir)/netatalk/CNID/
+-	$(INSTALL_DATA) $(srcdir)/README $(DESTDIR)$(localstatedir)/netatalk/
+-	$(INSTALL_DATA) $(srcdir)/README $(DESTDIR)$(localstatedir)/netatalk/CNID/
+
+ uninstall-local:
+ 	@for f in $(CONFFILES) $(GENFILES); do \
+--- netatalk/config/Makefile.in	2014-08-29 12:33:35.000000000 +0200
++++ netatalk/config/Makefile.in.new	2015-07-28 17:22:57.000000000 +0200
+@@ -783,10 +783,6 @@
+ #
+
+ install-data-local: install-config-files
+-	mkdir -pm 0755 $(DESTDIR)$(localstatedir)/netatalk/
+-	mkdir -pm 0755 $(DESTDIR)$(localstatedir)/netatalk/CNID/
+-	$(INSTALL_DATA) $(srcdir)/README $(DESTDIR)$(localstatedir)/netatalk/
+-	$(INSTALL_DATA) $(srcdir)/README $(DESTDIR)$(localstatedir)/netatalk/CNID/
+
+ uninstall-local:
+ 	@for f in $(CONFFILES) $(GENFILES); do \
