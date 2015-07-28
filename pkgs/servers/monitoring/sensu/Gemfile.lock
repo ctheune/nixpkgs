@@ -21,7 +21,7 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
-    sensu (0.20.0)
+    sensu (0.20.1)
       async_sinatra (= 1.2.0)
       em-redis-unified (= 1.0.0)
       eventmachine (= 1.0.7)

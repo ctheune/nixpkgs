@@ -104,10 +104,10 @@
     ];
   };
   "sensu" = {
-    version = "0.20.0";
+    version = "0.20.1";
     source = {
       type = "gem";
-      sha256 = "1w6ydypwvbiian3nnpd4qg5vzzvr86hxdi74rc8bh5w3is1rr97f";
+      sha256 = "0lxfb6lrrdfzx73kms8xxf1v8k92lhaw6db0507fgi7xm7jbgzrx";
     };
     dependencies = [
       "async_sinatra"
