@@ -17,6 +17,7 @@ stdenv.mkDerivation rec {
     "--with-bdb=${db}"
     "--with-openssl=${openssl}"
     "--localstatedir=${localStateDir}"
+    "--with-init-style=systemd"
   ];
 
   patches = [ ./dont-install-var.patch ];
@@ -30,6 +31,6 @@ stdenv.mkDerivation rec {
     homepage = http://netatalk.sourceforge.net/;
     license = stdenv.lib.licenses.gpl3;
     platforms = stdenv.lib.platforms.linux;
-    maintainers = with stdenv.lib.maintainers; [ jcumming ];
+    maintainers = with stdenv.lib.maintainers; [ jcumming theuni ];
   };
 }
