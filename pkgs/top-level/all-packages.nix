@@ -9238,6 +9238,8 @@ let
 
   sensu = callPackage ../servers/monitoring/sensu { };
 
+  uchiwa = callPackage ../servers/monitoring/uchiwa { };
+
   shishi = callPackage ../servers/shishi { };
 
   sipcmd = callPackage ../applications/networking/sipcmd { };

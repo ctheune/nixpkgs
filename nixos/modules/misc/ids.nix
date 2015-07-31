@@ -227,6 +227,10 @@
       riemanntools = 203;
       subsonic = 204;
       riak = 205;
+      sensuserver = 206;
+      sensuclient = 207;
+      sensuapi = 208;
+      uchiwa = 209;
 
       # When adding a uid, make sure it doesn't match an existing gid. And don't use uids above 399!
 
@@ -432,6 +436,10 @@
       riemanntools = 203;
       subsonic = 204;
       riak = 205;
+      sensuserver = 205;
+      sensuclient = 206;
+      sensuapi = 207;
+      uchiwa = 208;
 
       # When adding a gid, make sure it doesn't match an existing
       # uid. Users and groups with the same name should have equal
