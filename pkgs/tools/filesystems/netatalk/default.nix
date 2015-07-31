@@ -17,7 +17,6 @@ stdenv.mkDerivation rec {
     "--with-bdb=${db}"
     "--with-openssl=${openssl}"
     "--localstatedir=${localStateDir}"
-    "--with-init-style=systemd"
   ];
 
   patches = [ ./dont-install-var.patch ];
