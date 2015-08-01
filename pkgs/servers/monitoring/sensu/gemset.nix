@@ -66,10 +66,10 @@
     ];
   };
   "eventmachine" = {
-    version = "1.0.7";
+    version = "1.0.3";
     source = {
       type = "gem";
-      sha256 = "0k4xazfwp7s576bv63jx5b4zgdcyrj0isj64b2dkzm615gx7sarl";
+      sha256 = "09sqlsb6x9ddlgfw5gsw7z0yjg5m2qfjiqkz2fx70zsizj3lqhil";
     };
   };
   "ffi" = {
@@ -191,10 +191,10 @@
     ];
   };
   "sensu-transport" = {
-    version = "3.0.0";
+    version = "3.2.0";
     source = {
       type = "gem";
-      sha256 = "0xqlqra3cgyy735l77fh6kasxl3l1mgwc0igjd40cbb1ik2z38ml";
+      sha256 = "00njdf9b2x4w15bjrs6mqcnwis7w9hnmrzp02yyqq82fc76n7m8a";
     };
     dependencies = [
       "amqp"
