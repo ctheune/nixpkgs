@@ -1,9 +1,9 @@
-{ lib, bundlerEnv, ruby_2_2, pkgs }:
+{ lib, bundlerEnv, ruby_2_0, pkgs }:
 
   bundlerEnv {
   name = "sensu-0.20.1";
 
-  ruby = ruby_2_2;
+  ruby = ruby_2_0;
 
   gemfile = ./Gemfile;
   lockfile = ./Gemfile.lock;
