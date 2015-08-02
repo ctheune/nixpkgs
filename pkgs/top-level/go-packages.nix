@@ -1512,6 +1512,19 @@ let
     sha256 = "05ihxpmp6x3hw71xzvjdgxnyvyx2s4lf23xqnfjj16s4j4qidc48";
   };
 
+  dgrijalva.jwt-go = buildGoPackage rec {
+    name = "dgrijalva-jwt-go-${rev}";
+    goPackagePath = "github.com/dgrijalva/jwt-go";
+    rev = "v2.2.0-15-g61124b6";
+
+    src = fetchFromGitHub {
+      inherit rev;
+      owner = "dgrijalva";
+      repo = "jwt-go";
+      sha256 = "1pjianfr96rxa5b9sc9659gnay3kqwhcmjw26z77gznfjxajigqd";
+    };
+  };
+
   palourde.logger = buildGoPackage rec {
     name = "palourde-logger-${rev}";
     goPackagePath = "github.com/palourde/logger";
@@ -1535,19 +1548,6 @@ let
       owner = "bencaron";
       repo = "gosensu";
       sha256 = "04q7qcx2qri06df2sr9nzlgs28i4p7f5xjpjkzcvixsidzgxil0g";
-    };
-  };
-
-  dgrijalva.jwt-go = buildGoPackage rec {
-    name = "dgrijalva-jwt-go-${rev}";
-    goPackagePath = "github.com/dgrijalva/jwt-go";
-    rev = "v2.2.0-15-g61124b6";
-
-    src = fetchFromGitHub {
-      inherit rev;
-      owner = "dgrijalva";
-      repo = "jwt-go";
-      sha256 = "1pjianfr96rxa5b9sc9659gnay3kqwhcmjw26z77gznfjxajigqd";
     };
   };
 

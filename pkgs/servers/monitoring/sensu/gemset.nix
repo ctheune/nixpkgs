@@ -191,10 +191,10 @@
     ];
   };
   "sensu-transport" = {
-    version = "3.0.0";
+    version = "3.2.0";
     source = {
       type = "gem";
-      sha256 = "0xqlqra3cgyy735l77fh6kasxl3l1mgwc0igjd40cbb1ik2z38ml";
+      sha256 = "00njdf9b2x4w15bjrs6mqcnwis7w9hnmrzp02yyqq82fc76n7m8a";
     };
     dependencies = [
       "amqp"
