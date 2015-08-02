@@ -66,10 +66,10 @@
     ];
   };
   "eventmachine" = {
-    version = "1.0.3";
+    version = "1.0.7";
     source = {
       type = "gem";
-      sha256 = "09sqlsb6x9ddlgfw5gsw7z0yjg5m2qfjiqkz2fx70zsizj3lqhil";
+      sha256 = "0k4xazfwp7s576bv63jx5b4zgdcyrj0isj64b2dkzm615gx7sarl";
     };
   };
   "ffi" = {
