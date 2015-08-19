@@ -1,2 +1,2 @@
 source 'https://rubygems.org'
-gem 'sensu', "=0.20.1"
+gem 'sensu'

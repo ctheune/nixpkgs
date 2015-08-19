@@ -2,13 +2,13 @@
 
 let
 
-  version = "0.8.1";
+  version = "0.10.3";
 
   uchiwa_src = fetchFromGitHub {
     owner = "sensu";
     repo = "uchiwa";
     rev = "${version}";
-    sha256 = "0v33dci0lawqxkzr8nzpa92mv6i5ylcb1d5y5iq41sw6w3x21a1q";
+    sha256 = "1zqhr7kxfqz27pvv975szry692ps314spv00r59dvg9caim8mwsh";
   };
 
   uchiwa_go_package = goPackages.buildGoPackage rec {
@@ -21,6 +21,8 @@ let
       goPackages.palourde.logger
       goPackages.bencaron.gosensu
       goPackages.dgrijalva.jwt-go
+      goPackages.context
+      goPackages.mapstructure
     ];
 
     src = uchiwa_src;
@@ -35,7 +37,7 @@ in
 
   stdenv.mkDerivation rec {
 
-    name="uchiwa-0.8.1";
+    name="uchiwa-${version}";
 
     src = uchiwa_src;
 

@@ -104,10 +104,10 @@
     ];
   };
   "sensu" = {
-    version = "0.20.1";
+    version = "0.20.2";
     source = {
       type = "gem";
-      sha256 = "0lxfb6lrrdfzx73kms8xxf1v8k92lhaw6db0507fgi7xm7jbgzrx";
+      sha256 = "15d46xvwfw4r7l558807xy6c5aq23f5w9wfvhxr5zqrnwvn1lsga";
     };
     dependencies = [
       "async_sinatra"
@@ -169,10 +169,10 @@
     ];
   };
   "sensu-settings" = {
-    version = "3.0.0";
+    version = "3.1.0";
     source = {
       type = "gem";
-      sha256 = "1ymp1q3r6lzm49z3ilisrhbmd2qgxx2m4rnwzrj83318n92ph6jp";
+      sha256 = "0wri1jhjzxj6ig39ks56s8djzv7ivjk2fmaz8s93kjxv471746pl";
     };
     dependencies = [
       "multi_json"

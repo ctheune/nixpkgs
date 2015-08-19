@@ -13,6 +13,56 @@ let
         "name": "${config.networking.hostName}",
         "address": "localhost",
         "subscriptions": ["default"]
+      },
+     "checks": {
+        "load": {
+            "notification": "Load is too high",
+            "command": "check_load -r -w 0.8,0.8,0.8 -c 2,2,2",
+            "interval": 10,
+            "standalone": true
+        },
+        "swap": {
+            "notification": "Swap is running low",
+            "command": "check_swap -w 20% -c 10%",
+            "interval": 300,
+            "standalone": true
+        },
+        "ssh": {
+            "notification": "SSH server is not responding properly",
+            "command": "check_ssh localhost",
+            "interval": 300,
+            "standalone": true
+        },
+        "ntp_time": {
+            "notification": "Clock is skewed",
+            "command": "check_ntp_time -H 0.de.pool.ntp.org",
+            "interval": 300,
+            "standalone": true
+        },
+        "internet_uplink_ipv4": {
+            "notification": "Internet (Google) is not available",
+            "command": "check_ping  -w 100,5% -c 200,10% -H google.com  -4",
+            "interval": 60,
+            "standalone": true
+        },
+        "internet_uplink_ipv6": {
+            "notification": "Internet (Google) is not available",
+            "command": "check_ping  -w 100,5% -c 200,10% -H google.com  -6",
+            "interval": 60,
+            "standalone": true
+        },
+        "uptime": {
+            "notification": "Host was down",
+            "command": "check_uptime",
+            "interval": 60,
+            "standalone": true
+        },
+        "users": {
+            "notification": "Many users logged in",
+            "command": "check_users -w 5 -c 10",
+            "interval": 60,
+            "standalone": true
+        }
       }
     }
   '';
@@ -58,10 +108,10 @@ in {
 
     systemd.services.sensu-client = {
       wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.sensu pkgs.nagiosPluginsOfficial pkgs.bash ];
+      path = [ pkgs.sensu pkgs.nagiosPluginsOfficial pkgs.bash pkgs.lm_sensors ];
       serviceConfig = {
         User = "sensuclient";
-        ExecStart = "${pkgs.sensu}/bin/sensu-client -c ${client_json} -v -L debug";
+        ExecStart = "${pkgs.sensu}/bin/sensu-client -c ${client_json} -v";
         Restart = "always";
         RestartSec = "5s";
       };

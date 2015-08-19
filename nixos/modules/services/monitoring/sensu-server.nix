@@ -30,7 +30,20 @@ let
     {
       "checks": {
         ${http_checks}
-      }
+      },
+
+   "handlers": {
+    "email": {
+      "type": "pipe",
+      "command": "mail -s 'sensu alert' christian@theune.cc"
+    },
+    "default": {
+      "handlers": [
+        "email"
+      ],
+      "type": "set"
+    }
+  }
 
     ${config.services.sensu-server.config}
 
@@ -79,13 +92,14 @@ in {
 
     services.rabbitmq.enable = true;
     services.redis.enable = true;
+    services.postfix.enable = true;
 
     systemd.services.sensu-server = {
       wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.sensu pkgs.bash ];
+      path = [ pkgs.sensu pkgs.bash pkgs.mailutils ];
       serviceConfig = {
         User = "sensuserver";
-        ExecStart = "${pkgs.sensu}/bin/sensu-server -v -L debug -c ${sensu_server_json}";
+        ExecStart = "${pkgs.sensu}/bin/sensu-server -v -c ${sensu_server_json}";
         Restart = "always";
         RestartSec = "5s";
       };

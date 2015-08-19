@@ -1528,13 +1528,13 @@ let
   palourde.logger = buildGoPackage rec {
     name = "palourde-logger-${rev}";
     goPackagePath = "github.com/palourde/logger";
-    rev = "0.0.1";
+    rev = "9a4d423c7f4ec5718dd2ff93580aaa1198b46159";
 
     src = fetchFromGitHub {
       inherit rev;
       owner = "palourde";
       repo = "logger";
-      sha256 = "1wkmjmai51w08f3k7s82spwgnmdvmxir3znmxcamhl1d5qqc32fg";
+      sha256 = "1rh46213j2gqys1x7gbbdyanj95l8siyr6g7ki3fac4xd0dypi2m";
     };
   };
 
