@@ -1674,6 +1674,8 @@ let
 
   go-mtpfs = goPackages.mtpfs.bin // { outputs = [ "bin" ]; };
 
+  go-pup = goPackages.pup.bin // { outputs = [ "bin" ]; };
+
   googleAuthenticator = callPackage ../os-specific/linux/google-authenticator { };
 
   google-cloud-sdk = callPackage ../tools/admin/google-cloud-sdk { };
