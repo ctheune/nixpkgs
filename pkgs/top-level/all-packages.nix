@@ -9016,9 +9016,8 @@ let
     self = pypyPackages;
   });
 
-  foursuite = callPackage ../development/python-modules/4suite { };
-
   bsddb3 = callPackage ../development/python-modules/bsddb3 { };
+  foursuite = pythonPackages.foursuite;
 
 
   ecdsa = pythonPackages.ecdsa;
