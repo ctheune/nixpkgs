@@ -9003,8 +9003,6 @@ let
 
   numeric = callPackage ../development/python-modules/numeric { };
 
-  pil = pythonPackages.pil;
-
   psyco = callPackage ../development/python-modules/psyco { };
 
   pycairo = pythonPackages.pycairo;
