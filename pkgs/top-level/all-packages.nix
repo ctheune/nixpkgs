@@ -9022,7 +9022,6 @@ let
 
   ecdsa = callPackage ../development/python-modules/ecdsa { };
 
-  numeric = callPackage ../development/python-modules/numeric { };
 
   psyco = callPackage ../development/python-modules/psyco { };
 
