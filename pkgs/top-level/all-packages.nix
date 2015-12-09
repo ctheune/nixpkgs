@@ -9032,7 +9032,7 @@ let
 
   pyexiv2 = callPackage ../development/python-modules/pyexiv2 { };
 
-  pygame = callPackage ../development/python-modules/pygame { };
+  pygame = pythonPackages.pygame;
 
   pygobject = pythonPackages.pygobject;
 
