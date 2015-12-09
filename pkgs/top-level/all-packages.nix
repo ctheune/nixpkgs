@@ -5034,6 +5034,8 @@ let
   rebar = callPackage ../development/tools/build-managers/rebar { };
   rebar3 = callPackage ../development/tools/build-managers/rebar3 { };
 
+  erlangPackages = callPackage ../development/erlang-modules { };
+
   elixir = callPackage ../development/interpreters/elixir { };
 
   groovy = callPackage ../development/interpreters/groovy { };
