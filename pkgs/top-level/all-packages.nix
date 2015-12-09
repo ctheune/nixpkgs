@@ -9028,7 +9028,7 @@ let
 
   pycrypto = pythonPackages.pycrypto;
 
-  pycups = callPackage ../development/python-modules/pycups { };
+  pycups = pythonPackages.pycups;
 
   pyexiv2 = callPackage ../development/python-modules/pyexiv2 { };
 
