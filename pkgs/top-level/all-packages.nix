@@ -9062,8 +9062,6 @@ let
 
   pysideShiboken = callPackage ../development/python-modules/pyside/shiboken.nix { };
 
-  pyx = callPackage ../development/python-modules/pyx { };
-
   pyxml = callPackage ../development/python-modules/pyxml { };
 
   rbtools = callPackage ../development/python-modules/rbtools { };
