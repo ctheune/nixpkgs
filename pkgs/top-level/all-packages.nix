@@ -2718,6 +2718,10 @@ let
     gtk2 = null;
   };
 
+  pinentry_qt4 = pinentry_ncurses.override {
+    inherit qt4;
+  };
+
   pinentry_qt5 = qt55Libs.callPackage ../tools/security/pinentry/qt5.nix {
     libcap = if stdenv.isDarwin then null else libcap;
   };
