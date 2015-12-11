@@ -5383,7 +5383,7 @@ let
 
   augeas = callPackage ../tools/system/augeas { };
 
-  ansible = callPackage ../tools/system/ansible { };
+  ansible = pythonPackages.ansible;
 
   ansible2 = callPackage ../tools/system/ansible/2.nix { };
 
