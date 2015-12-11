@@ -9058,7 +9058,7 @@ let
 
   pysideTools = pythonPackages.pysideTools;
 
-  pysideShiboken = pythonpackages.pysideShiboken;
+  pysideShiboken = pythonPackages.pysideShiboken;
 
   pyxml = callPackage ../development/python-modules/pyxml { };
 
