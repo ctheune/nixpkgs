@@ -12523,6 +12523,8 @@ let
 
   mopidy-soundcloud = callPackage ../applications/audio/mopidy-soundcloud { };
 
+  mopidy-musicbox-webclient = callPackage ../applications/audio/mopidy-musicbox-webclient { };
+
   mozplugger = callPackage ../applications/networking/browsers/mozilla-plugins/mozplugger {};
 
   easytag = callPackage ../applications/audio/easytag { };
