@@ -10357,6 +10357,8 @@ let
 
   numactl = callPackage ../os-specific/linux/numactl { };
 
+  numad = callPackage ../os-specific/linux/numad { };
+
   open-vm-tools = callPackage ../applications/virtualization/open-vm-tools {
     inherit (gnome) gtk gtkmm;
   };
