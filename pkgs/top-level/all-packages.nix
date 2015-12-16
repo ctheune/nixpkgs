@@ -2887,6 +2887,8 @@ let
 
   reaverwps = callPackage ../tools/networking/reaver-wps {};
 
+  recordmydesktop = callPackage ../applications/video/recordmydesktop { };
+
   recutils = callPackage ../tools/misc/recutils { };
 
   recoll = callPackage ../applications/search/recoll { };
