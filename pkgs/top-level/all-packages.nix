@@ -5536,6 +5536,8 @@ let
     ruby = ruby_2_0_0;
   };
 
+  matter-compiler = callPackage ../development/compilers/matter-compiler {};
+
   cfr = callPackage ../development/tools/java/cfr { };
 
   checkstyle = callPackage ../development/tools/analysis/checkstyle { };
