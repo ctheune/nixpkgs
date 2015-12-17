@@ -11658,8 +11658,9 @@ let
     inherit fetchurl lib stdenv texinfo;
   };
 
-  melpaStablePackages =
-    import ../applications/editors/emacs-modes/melpa-stable-packages.nix pkgs;
+  melpaStablePackages = import ../applications/editors/emacs-modes/melpa-stable-packages.nix {
+    inherit lib;
+  };
 
   melpaPackages = import ../applications/editors/emacs-modes/melpa-packages.nix {
     inherit lib;
