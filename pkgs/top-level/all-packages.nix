@@ -3743,6 +3743,8 @@ let
 
   nix-zsh-completions = callPackage ../shells/nix-zsh-completions { };
 
+  grml-zsh-config = callPackage ../shells/grml-zsh-config { };
+
 
   ### DEVELOPMENT / COMPILERS
 
