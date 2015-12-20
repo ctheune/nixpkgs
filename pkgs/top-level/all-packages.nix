@@ -11017,7 +11017,7 @@ let
 
   amsn = callPackage ../applications/networking/instant-messengers/amsn { };
 
-  antimony = callPackage ../applications/graphics/antimony {};
+  antimony = qt5.callPackage ../applications/graphics/antimony {};
 
   antiword = callPackage ../applications/office/antiword {};
 
