@@ -3025,7 +3025,7 @@ let
 
   siege = callPackage ../tools/networking/siege {};
 
-  sigil = callPackage ../applications/editors/sigil { };
+  sigil = qt5.callPackage ../applications/editors/sigil { };
 
   # aka., gpg-tools
   signing-party = callPackage ../tools/security/signing-party { };
