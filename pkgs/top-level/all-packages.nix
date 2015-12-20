@@ -12881,7 +12881,7 @@ let
 
   qsynth = callPackage ../applications/audio/qsynth { };
 
-  qtox = callPackage ../applications/networking/instant-messengers/qtox { };
+  qtox = qt5.callPackage ../applications/networking/instant-messengers/qtox { };
 
   qtpass = qt5.callPackage ../applications/misc/qtpass { };
 
