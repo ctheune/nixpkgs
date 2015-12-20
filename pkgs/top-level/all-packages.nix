@@ -12583,7 +12583,7 @@ let
      stdenv = stdenv_32bit;
   };
 
-  shotcut = callPackage ../applications/video/shotcut { mlt = mlt-qt5; };
+  shotcut = qt5.callPackage ../applications/video/shotcut { };
 
   smplayer = callPackage ../applications/video/smplayer { };
 
