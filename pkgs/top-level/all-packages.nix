@@ -2013,7 +2013,7 @@ let
 
   kpcli = callPackage ../tools/security/kpcli { };
 
-  kst = callPackage ../tools/graphics/kst { gsl = gsl_1; };
+  kst = qt5.callPackage ../tools/graphics/kst { gsl = gsl_1; };
 
   leocad = callPackage ../applications/graphics/leocad { };
 
