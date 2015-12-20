@@ -11919,7 +11919,7 @@ let
 
   libquvi = callPackage ../applications/video/quvi/library.nix { };
 
-  linssid = callPackage ../applications/networking/linssid { };
+  linssid = qt5.callPackage ../applications/networking/linssid { };
 
   mi2ly = callPackage ../applications/audio/mi2ly {};
 
