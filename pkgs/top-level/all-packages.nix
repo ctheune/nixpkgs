@@ -12915,7 +12915,7 @@ let
     demo = false;
   };
 
-  rapcad = callPackage ../applications/graphics/rapcad {};
+  rapcad = qt5.callPackage ../applications/graphics/rapcad {};
 
   rapidsvn = callPackage ../applications/version-management/rapidsvn { };
 
