@@ -15443,7 +15443,7 @@ let
     inherit (pythonPackages) pexpect paramiko;
   };
 
-  robomongo = callPackage ../applications/misc/robomongo { };
+  robomongo = qt5.callPackage ../applications/misc/robomongo { };
 
   rucksack = callPackage ../development/tools/rucksack { };
 
