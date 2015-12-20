@@ -12682,7 +12682,7 @@ let
     inherit (gnome) libglade;
   };
 
-  obs-studio = callPackage ../applications/video/obs-studio {
+  obs-studio = qt5.callPackage ../applications/video/obs-studio {
     pulseaudioSupport = config.pulseaudio or true;
   };
 
