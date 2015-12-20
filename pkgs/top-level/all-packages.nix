@@ -12753,7 +12753,7 @@ let
 
   photoqt = qt5.callPackage ../applications/graphics/photoqt { };
 
-  phototonic = callPackage ../applications/graphics/phototonic { };
+  phototonic = qt5.callPackage ../applications/graphics/phototonic { };
 
   pianobar = callPackage ../applications/audio/pianobar { };
 
