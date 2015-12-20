@@ -12883,7 +12883,7 @@ let
 
   qtox = callPackage ../applications/networking/instant-messengers/qtox { };
 
-  qtpass = callPackage ../applications/misc/qtpass { };
+  qtpass = qt5.callPackage ../applications/misc/qtpass { };
 
   qtpfsgui = callPackage ../applications/graphics/qtpfsgui { };
 
