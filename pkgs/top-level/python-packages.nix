@@ -10040,6 +10040,10 @@ in modules // {
 
     buildInputs = with self; [ pexpect ];
 
+    prePatch = ''
+      substituteInPlace setup.py --replace "sympy==0.7.6" "sympy"
+    '';
+
     propagatedBuildInputs = with self; [
       argparse
       cython
