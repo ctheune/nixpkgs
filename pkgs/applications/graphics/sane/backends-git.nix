@@ -6,13 +6,14 @@ let
 in
 assert hotplugSupport -> (stdenv.system == "i686-linux" || stdenv.system == "x86_64-linux");
 
+let version = "2015-12-20"; in
 stdenv.mkDerivation {
-  name = "sane-backends-1.0.24.73-g6c4f6bc";
+  name = "sane-backends-${version}";
 
   src = fetchgit {
     url = "git://alioth.debian.org/git/sane/sane-backends.git";
-    rev = "6c4f6bc58615755dc734281703b594cea3ebf848";
-    sha256 = "0f7lbv1rnr53n4rpihcd8dkfm01xvwfnx9i1nqaadrzbpvgkjrfa";
+    rev = "5136e664b8608604f54a2cc1d466019922b311e6";
+    sha256 = "998fdc9cdd3f9220c38244e0b87bba3ee623d7d20726479b04ed95b3836a37ed";
   };
 
   udevSupport = hotplugSupport;
@@ -38,12 +39,20 @@ stdenv.mkDerivation {
       "echo epson2 > \${out}/etc/sane.d/dll.conf"
     else "";
 
-  meta = {
+  meta = with stdenv.lib; {
+    inherit version;
     homepage = "http://www.sane-project.org/";
-    description = "Scanner Access Now Easy";
-    license = stdenv.lib.licenses.gpl2Plus;
+    description = "SANE (Scanner Access Now Easy) backends";
+    longDescription = ''
+      Collection of open-source SANE backends (device drivers).
+      SANE is a universal scanner interface providing standardized access to
+      any raster image scanner hardware: flatbed scanners, hand-held scanners,
+      video- and still-cameras, frame-grabbers, etc. For a list of supported
+      scanners, see http://www.sane-project.org/sane-backends.html.
+    '';
+    license = licenses.gpl2Plus;
 
-    maintainers = [ stdenv.lib.maintainers.simons ];
-    platforms = stdenv.lib.platforms.linux;
+    maintainers = with maintainers; [ nckx simons ];
+    platforms = platforms.linux;
   };
 }

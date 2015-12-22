@@ -5,10 +5,10 @@ let
 
   version = "${libVersion}-list-${listVersion}";
 
-  listVersion = "2015-11-13";
+  listVersion = "2015-12-17";
   listSources = fetchFromGitHub {
-    sha256 = "1l60mrrhrafpiga56h3j2x3vsx2607lih2vmjx1gx16g2j89gbmq";
-    rev = "edf1735751c24e736018dc51f1be7dea686b6304";
+    sha256 = "09scxqlw7cp7vkjn7bp7dr9nqb3wg84kvw3iyapyxddfri4k0rvl";
+    rev = "9636089f5f22b0af98b1a48fb9179dc875f0872d";
     repo = "list";
     owner = "publicsuffix";
   };
@@ -41,7 +41,7 @@ in stdenv.mkDerivation {
     # The libpsl check phase requires the list's test scripts (tests/) as well
     cp -Rv "${listSources}"/* list
   '';
-  configureFlags = "--disable-static --enable-gtk-doc --enable-man";
+  configureFlags = [ "--disable-static" "--enable-gtk-doc" "--enable-man" ];
 
   enableParallelBuilding = true;
 

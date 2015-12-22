@@ -6,7 +6,7 @@
 {stdenv, fetchurl, writeText, pkgconfig, ocaml, findlib, camlp5, ncurses, lablgtk ? null, csdp ? null}:
 
 let
-  version = "8.5b3";
+  version = "8.5rc1";
   coq-version = "8.5";
   buildIde = lablgtk != null;
   ideFlags = if buildIde then "-lablgtkdir ${lablgtk}/lib/ocaml/*/site-lib/lablgtk2 -coqide opt" else "";
@@ -23,8 +23,8 @@ stdenv.mkDerivation {
   inherit ocaml camlp5;
 
   src = fetchurl {
-    url = https://coq.inria.fr/distrib/V8.5beta3/files/coq-8.5beta3.tar.gz;
-    sha256 = "12nnvfz5rsz660j4knhfhfbwq49y2va0rgfrxyiyrr1q4ic84wn6";
+    url = https://coq.inria.fr/distrib/V8.5rc1/files/coq-8.5rc1.tar.gz;
+    sha256 = "0n8mb7di9iwg8dgy1xmivf2ajx8kqkrj9mafc32vicn2lbg16q2r";
   };
 
   buildInputs = [ pkgconfig ocaml findlib camlp5 ncurses lablgtk ];
@@ -34,7 +34,7 @@ stdenv.mkDerivation {
     RM=$(type -tp rm)
     substituteInPlace configure --replace "/bin/uname" "$UNAME"
     substituteInPlace tools/beautify-archive --replace "/bin/rm" "$RM"
-    substituteInPlace Makefile.build --replace "ifeq (\$(ARCH),Darwin)" "ifeq (\$(ARCH),Darwinx)"
+    substituteInPlace configure.ml --replace "if arch = \"Darwin\" then \"md5" "if arch = \"Darwinx\" then \"md5"
     ${csdpPatch}
   '';
 

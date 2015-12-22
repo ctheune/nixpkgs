@@ -686,10 +686,10 @@ let
   };
 
   fzf = buildFromGitHub {
-    rev = "0.11.0";
+    rev = "0.11.1";
     owner = "junegunn";
     repo = "fzf";
-    sha256 = "1jcvfdglmrsh7z6lasj2i7l3cwqd0ijhv5ywafmr7m1rn90nj1pf";
+    sha256 = "1zw1kq4d5sb1qia44q04i33yii9qwlwlwz8vxhln03d4631mhsra";
 
     buildInputs = [
       crypto ginkgo gomega junegunn.go-runewidth go-shellwords pkgs.ncurses text
@@ -778,8 +778,7 @@ let
     '';
 
     postInstall = ''
-      mkdir -p $bin/share
-      mv $bin/bin/{man,script} $bin/share
+      rm -v $bin/bin/{man,script}
     '';
   };
 
@@ -845,6 +844,14 @@ let
     owner  = "dgnorton";
     repo   = "goback";
     sha256 = "1nyg6sckwd0iafs9vcmgbga2k3hid2q0avhwj29qbdhj3l78xi47";
+  };
+
+  gocryptfs = buildFromGitHub {
+    rev = "v0.5";
+    owner = "rfjakob";
+    repo = "gocryptfs";
+    sha256 = "0jsdz8y7a1fkyrfwg6353c9r959qbqnmf2cjh57hp26w1za5bymd";
+    buildInputs = [ crypto go-fuse openssl-spacemonkey ];
   };
 
   gocheck = buildGoPackage rec {
@@ -1689,6 +1696,13 @@ let
     disabled = isGo14;
   };
 
+  json2csv = buildFromGitHub{
+    rev = "d82e60e6dc2a7d3bcf15314d1ecbebeffaacf0c6";
+    owner  = "jehiah";
+    repo   = "json2csv";
+    sha256 = "1fw0qqaz2wj9d4rj2jkfj7rb25ra106p4znfib69p4d3qibfjcsn";
+  };
+
   ldap = buildGoPackage rec {
     rev = "83e65426fd1c06626e88aa8a085e5bfed0208e29";
     name = "ldap-${stdenv.lib.strings.substring 0 7 rev}";
@@ -2123,6 +2137,18 @@ let
     preBuild = ''
       find go/src/$goPackagePath -name \*.go | xargs sed -i 's,spacemonkeygo/openssl,10gen/openssl,g'
     '';
+  };
+
+  # reintroduced for gocrytpfs as I don't understand the 10gen/spacemonkey split
+  openssl-spacemonkey = buildFromGitHub rec {
+    rev = "71f9da2a482c2b7bc3507c3fabaf714d6bb8b75d";
+    name = "openssl-${stdenv.lib.strings.substring 0 7 rev}";
+    owner = "spacemonkeygo";
+    repo = "openssl";
+    sha256 = "1byxwiq4mcbsj0wgaxqmyndp6jjn5gm8fjlsxw9bg0f33a3kn5jk";
+    nativeBuildInputs = [ pkgs.pkgconfig ];
+    buildInputs = [ pkgs.openssl ];
+    propagatedBuildInputs = [ spacelog ];
   };
 
   opsgenie-go-sdk = buildFromGitHub {
@@ -3211,4 +3237,27 @@ let
     '';
   };
 
+  color = buildFromGitHub {
+    rev      = "9aae6aaa22315390f03959adca2c4d395b02fcef";
+    owner    = "fatih";
+    repo     = "color";
+    sha256   = "1vjcgx4xc0h4870qzz4mrh1l0f07wr79jm8pnbp6a2yd41rm8wjp";
+    propagatedBuildInputs = [ net go-isatty ];
+    buildInputs = [ ansicolor go-colorable ];
+  };
+
+  pup = buildFromGitHub {
+    rev      = "9693b292601dd24dab3c04bc628f9ae3fa72f831";
+    owner    = "EricChiang";
+    repo     = "pup";
+    sha256   = "04j3fy1vk6xap8ad7k3c05h9b5mg2n1vy9vcyg9rs02cb13d3sy0";
+    propagatedBuildInputs = [ net ];
+    buildInputs = [ go-colorable color ];
+    postPatch = ''
+      grep -sr github.com/ericchiang/pup/Godeps/_workspace/src/ |
+        cut -f 1 -d : |
+        sort -u |
+        xargs -d '\n' sed -i -e s,github.com/ericchiang/pup/Godeps/_workspace/src/,,g
+    '';
+  };
 }; in self

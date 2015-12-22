@@ -1,15 +1,16 @@
 { stdenv, fetchurl, python, pyqt5, sip_4_16, poppler_utils, pkgconfig, libpng
-, imagemagick, libjpeg, fontconfig, podofo, qt5, icu, sqlite
-, pil, makeWrapper, unrar, chmlib, pythonPackages, xz, libusb1, libmtp
+, imagemagick, libjpeg, fontconfig, podofo, qtbase, icu, sqlite
+, makeWrapper, unrar, chmlib, pythonPackages, xz, libusb1, libmtp
 , xdg_utils
 }:
 
 stdenv.mkDerivation rec {
-  name = "calibre-${meta.version}";
+  version = "2.46.0";
+  name = "calibre-${version}";
 
   src = fetchurl {
-    url = "https://github.com/kovidgoyal/calibre/releases/download/v${meta.version}/${name}.tar.xz";
-    sha256 = "1ffqvnjqmplcpa398809gp4d4l7nqc6k8ky255mdkabfcdvf3kk3";
+    url = "http://download.calibre-ebook.com/${version}/${name}.tar.xz";
+    sha256 = "0ig1pb62w57l6nhwg391mkjhw9dyicix6xigpdyw0320jdw9nlkb";
   };
 
   inherit python;
@@ -23,7 +24,7 @@ stdenv.mkDerivation rec {
 
   buildInputs =
     [ python pyqt5 sip_4_16 poppler_utils libpng imagemagick libjpeg
-      fontconfig podofo qt5.base pil chmlib icu sqlite libusb1 libmtp xdg_utils
+      fontconfig podofo qtbase chmlib icu sqlite libusb1 libmtp xdg_utils
       pythonPackages.mechanize pythonPackages.lxml pythonPackages.dateutil
       pythonPackages.cssutils pythonPackages.beautifulsoup pythonPackages.pillow
       pythonPackages.sqlite3 pythonPackages.netifaces pythonPackages.apsw
@@ -58,11 +59,11 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with stdenv.lib; {
-    version = "2.44.1";
     description = "Comprehensive e-book software";
     homepage = http://calibre-ebook.com;
     license = licenses.gpl3;
     maintainers = with maintainers; [ viric iElectric pSub AndersonTorres ];
     platforms = platforms.linux;
+    inherit version;
   };
 }

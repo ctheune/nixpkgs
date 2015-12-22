@@ -1,23 +1,25 @@
-{ stdenv, fetchFromGitHub, autoreconfHook, gtk2, nssTools, pcsclite
+{ stdenv, fetchFromGitHub, autoreconfHook, gtk3, nssTools, pcsclite
 , pkgconfig }:
 
-let version = "4.1.8"; in
+let version = "4.1.11"; in
 stdenv.mkDerivation {
   name = "eid-mw-${version}";
 
   src = fetchFromGitHub {
-    sha256 = "1nmw4c2gvbpkrgjxyd2g0lbh85lb2czbgqplqrv69fr6azaddyyk";
+    sha256 = "09rp4x1vg0j4rb2dl74f8a7szqx73saacjz09jkih1sz6vwi0j0w";
     rev = "v${version}";
     repo = "eid-mw";
     owner = "Fedict";
   };
 
-  buildInputs = [ gtk2 pcsclite ];
+  buildInputs = [ gtk3 pcsclite ];
   nativeBuildInputs = [ autoreconfHook pkgconfig ];
 
   postPatch = ''
     sed 's@m4_esyscmd_s(.*,@[${version}],@' -i configure.ac
   '';
+
+  configureFlags = [ "--enable-dialogs=yes" ];
 
   enableParallelBuilding = true;
 
