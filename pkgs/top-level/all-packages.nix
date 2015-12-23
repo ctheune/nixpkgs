@@ -1293,6 +1293,7 @@ let
   di = callPackage ../tools/system/di { };
 
   diffoscope = callPackage ../tools/misc/diffoscope {
+    jdk = jdk7;
     pythonPackages = python3Packages;
     rpm = rpm.override { python = python3; };
   };
