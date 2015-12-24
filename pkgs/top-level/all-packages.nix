@@ -12033,6 +12033,8 @@ let
 
   gpsd = callPackage ../servers/gpsd { };
 
+  gpsprune = callPackage ../applications/misc/gpsprune { };
+
   gtk2fontsel = callPackage ../applications/misc/gtk2fontsel {
     inherit (gnome2) gtk;
   };
