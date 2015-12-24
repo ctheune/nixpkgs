@@ -13133,9 +13133,7 @@ let
 
   printrun = callPackage ../applications/misc/printrun { };
 
-  sddm = qt5.callPackage ../applications/display-managers/sddm {
-    themes = [];  # extra themes, etc.
-  };
+  sddm = kde5.sddm;
 
   slim = callPackage ../applications/display-managers/slim {
     libpng = libpng12;
@@ -14773,6 +14771,10 @@ let
       daemon = true;
       tag = "-daemon-qt5";
       withKDE = false;
+    };
+
+    sddm = callPackage ../applications/display-managers/sddm {
+      themes = [];  # extra themes, etc.
     };
 
   };
